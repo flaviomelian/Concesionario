@@ -86,6 +86,7 @@
 .search-bar select {
   padding: 0.8rem;
   border: 1px solid #ddd;
+  color: var(--text-dark);
   border-radius: 4px;
   flex: 1;
   min-width: 150px;
