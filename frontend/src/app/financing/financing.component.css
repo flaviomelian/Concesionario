@@ -1,0 +1,126 @@
+/* Variables de Marca */
+:host {
+  --primary: #1a1a1a;
+  --accent: #e63946;
+  --text-light: #f1faee;
+  --text-dark: #333;
+  --gray-bg: #f8f9fa;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+}
+
+/* Reset básico para el componente */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.financing-section {
+  padding: 5rem 5%;
+  background: linear-gradient(135deg, var(--primary) 0%, #333 100%);
+  color: white;
+}
+
+.financing-card {
+  display: flex;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.financing-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.benefit-list {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.benefit-list li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.simulator-box {
+  flex: 1;
+  background: white;
+  color: var(--text-dark);
+  padding: 2.5rem;
+  border-radius: 12px;
+  min-width: 300px;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.result-box {
+  margin: 2rem 0;
+  text-align: center;
+  padding: 1rem;
+  background: var(--gray-bg);
+  border-radius: 8px;
+}
+
+.monthly-fee {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+}

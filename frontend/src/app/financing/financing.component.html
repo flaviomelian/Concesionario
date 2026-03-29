@@ -1,0 +1,50 @@
+<header>
+    <nav class="navbar">
+        <div class="logo">Auto<span>Elite</span></div>
+        <ul class="nav-links">
+            <li><a routerLink="">Inicio</a></li>
+            <li><a routerLink="/services">Servicios</a></li>
+            <li><a routerLink="/financing">Financiación</a></li>
+            <li><a routerLink="/contact">Contacto</a></li>
+        </ul>
+        <div class="cta-nav">
+            <a href="tel:+34900000000" class="btn-phone">Llamar ahora</a>
+        </div>
+    </nav>
+</header>
+
+<section class="financing-section">
+  <div class="financing-card">
+    <div class="financing-info">
+      <h2>Financiación a tu medida</h2>
+      <p>Calcula tu cuota mensual de forma rápida y sin compromiso.</p>
+      <ul class="benefit-list">
+        <li>✓ Respuesta en 24 horas</li>
+        <li>✓ Sin entrada obligatoria</li>
+        <li>✓ Tipos de interés preferentes</li>
+      </ul>
+    </div>
+
+    <div class="simulator-box">
+      <h3>Simulador de Crédito</h3>
+      <div class="input-group">
+        <label>Importe a financiar</label>
+        <input type="number" #amount (input)="calculate(amount.value, terms.value)" placeholder="Ej: 20000">
+      </div>
+      <div class="input-group">
+        <label>Plazo (meses)</label>
+        <select #terms (change)="calculate(amount.value, terms.value)">
+          <option value="48">48 meses</option>
+          <option value="60">60 meses</option>
+          <option value="72">72 meses</option>
+          <option value="84">84 meses</option>
+        </select>
+      </div>
+      <div class="result-box">
+        <p>Cuota estimada:</p>
+        <span class="monthly-fee">{{ monthlyPayment }} €/mes</span>
+      </div>
+      <button class="btn-primary" style="width: 100%;">Solicitar Estudio</button>
+    </div>
+  </div>
+</section>

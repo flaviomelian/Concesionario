@@ -2,10 +2,10 @@
     <nav class="navbar">
         <div class="logo">Auto<span>Elite</span></div>
         <ul class="nav-links">
-            <li><a href="#inventario">Inventario</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#financiacion">Financiación</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a routerLink="">Inicio</a></li>
+            <li><a routerLink="/services">Servicios</a></li>
+            <li><a routerLink="/financing">Financiación</a></li>
+            <li><a routerLink="/contact">Contacto</a></li>
         </ul>
         <div class="cta-nav">
             <a href="tel:+34900000000" class="btn-phone">Llamar ahora</a>
@@ -50,24 +50,6 @@
                 <img [src]="vehicle.imageURL" [alt]="vehicle.make + ' ' + vehicle.model" />
             </div>
         </div>
-    </div>
-</section>
-
-<section id="servicios" class="benefits">
-    <div class="benefit-item">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Garantía 24 Meses</h3>
-        <p>Cobertura total en cualquier taller oficial de la península.</p>
-    </div>
-    <div class="benefit-item">
-        <i class="fas fa-check-circle"></i>
-        <h3>Certificación 150 Puntos</h3>
-        <p>Revisión técnica rigurosa antes de cada entrega.</p>
-    </div>
-    <div class="benefit-item">
-        <i class="fas fa-car-side"></i>
-        <h3>Entrega a Domicilio</h3>
-        <p>Llevamos tu nuevo coche a cualquier punto de España.</p>
     </div>
 </section>
 
