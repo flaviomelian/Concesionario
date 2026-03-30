@@ -17,5 +17,13 @@ export const routes: Routes = [
     {
         path: 'services',
         loadComponent: () => import('./services/services.component').then((m) => m.Services)
-    }
+    },
+    {
+        path: 'add-vehicle',
+        loadComponent: () => import('./addVehicle/addVehicle.component').then((m) => m.AddVehicle)
+    },
+    {
+        path: 'edit-vehicle/:id',
+        loadComponent: () => import('./editVehicle/editVehicle.component').then((m) => m.EditVehicle)
+    },
 ];

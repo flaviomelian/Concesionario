@@ -1,3 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* src/styles.css */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Bitcount+Grid+Double:slnt,wght@-8,235&display=swap');
+
+/* Variables Globales */
+:root {
+  --primary: #1a1a1a;
+  --accent: #e63946;
+  --text-light: #f1faee;
+  --text-dark: #333;
+  --gray-bg: #f8f9fa;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Globales de Componentes */
+@layer components {
+  .btn-primary {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: #c12e3a; /* Un rojo más oscuro */
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Aprovechando que tienes Tailwind, puedes añadir clases de utilidad aquí */
+  .form-group {
+    @apply mb-4 flex flex-col gap-2;
+  }
+}
+
+/* Reset básico que Tailwind respeta */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gray-bg);
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.bitcount-grid-double {
+  font-family: "Bitcount Grid Double", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 235;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" -8,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}

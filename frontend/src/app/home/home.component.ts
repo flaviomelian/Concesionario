@@ -40,4 +40,17 @@ export class Home implements OnInit {
       error: (err) => console.error('Error al obtener vehículos', err)
     });
   }
+
+  deleteVehicle(id: number) {
+    if (confirm('¿Estás seguro de que deseas eliminar este vehículo?')) {
+      this.http.delete(`${this.apiUrl}/${id}`).subscribe({
+        next: () => {
+          console.log(`Vehículo con ID ${id} eliminado`);
+          // Recarga la lista de vehículos después de eliminar
+          this.searchVehicles('', '');
+        },
+        error: (err) => console.error(`Error al eliminar vehículo con ID ${id}`, err)
+      });
+    }
+  }
 }
