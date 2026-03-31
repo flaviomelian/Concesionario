@@ -1,27 +1,30 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // NECESARIO para el binding
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-financing',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './financing.component.html',
   styleUrls: ['./financing.component.css']
 })
 export class Financing {
-
-  constructor(private http: HttpClient, private router: Router) {}
-
   monthlyPayment: number = 0;
+  interestRate: number = 4.9; // Valor inicial por defecto
 
-  calculate(amount: string, months: string) {
-    const p = parseFloat(amount);
+  calculate(amount: string, months: string, rate: number | string) {
+    const P = parseFloat(amount);
     const n = parseInt(months);
-    const interest = 0.0599 / 12; // 5.99% TIN ficticio
-
-    if (p > 0 && n > 0) {
-      this.monthlyPayment = Math.round((p * interest) / (1 - Math.pow(1 + interest, -n)));
+    const annualRate = typeof rate === 'string' ? parseFloat(rate) : rate;
+    
+    if (P > 0 && n > 0 && annualRate > 0) {
+      const i = (annualRate / 100) / 12; // Interés mensual decimal
+      const cuota = (P * i) / (1 - Math.pow(1 + i, -n));
+      this.monthlyPayment = Math.round(cuota * 100) / 100; // Redondeo a 2 decimales
+    } else {
+      this.monthlyPayment = 0;
     }
   }
 }

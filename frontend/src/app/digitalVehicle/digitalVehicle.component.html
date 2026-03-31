@@ -1,0 +1,78 @@
+<header>
+  <nav class="navbar">
+    <div class="logo">Auto<span>Elite</span></div>
+    <ul class="nav-links">
+      <li><a routerLink="">Inicio</a></li>
+      <li><a routerLink="/services">Servicios</a></li>
+      <li><a routerLink="/financing">Financiación</a></li>
+      <li><a routerLink="/contact">Contacto</a></li>
+    </ul>
+    <div class="cta-nav">
+      <a href="tel:+34900000000" class="btn-phone">Llamar ahora</a>
+    </div>
+  </nav>
+</header>
+<div class="configurador-container">
+  <div class="visor-coche">
+    <div class="css-car">
+      <div class="car-body">
+        <div class="car-top"></div>
+        <div class="car-base"></div>
+        <div class="window-front"></div>
+        <div class="window-back"></div>
+        <div class="light-front"></div>
+        <div class="light-back"></div>
+      </div>
+      <div class="wheel wheel-left">
+        <div class="rim"></div>
+      </div>
+      <div class="wheel wheel-right">
+        <div class="rim"></div>
+      </div>
+      <div class="car-shadow"></div>
+    </div>
+  </div>
+
+  <div class="panel-opciones">
+    <h3>Personaliza tu vehículo</h3>
+
+    <div class="seccion">
+      <p>Color Personalizado</p>
+      <div class="professional-picker-container">
+        <div class="picker-wrapper">
+          <input
+            type="color"
+            #colorPicker
+            [value]="config.hex || '#ff0000'"
+            (input)="actualizarColorManual(colorPicker.value)"
+            class="hidden-input"
+          />
+
+          <div
+            class="gradient-preview"
+            [style.background-color]="config.hex"
+            (click)="colorPicker.click()"
+          >
+            <span class="edit-icon">✎</span>
+          </div>
+        </div>
+
+        <div class="swatch-info">
+          <span class="color-label">Tono Seleccionado</span>
+          <span class="color-hex-display">{{ config.hex || '#ff0000' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="seccion">
+      <p>Llantas</p>
+      <button
+        *ngFor="let ll of opcionesLlantas"
+        (click)="cambiarLlantas(ll.id)"
+        [class.active]="config.llantas === ll.id"
+      >
+        {{ ll.label }}
+      </button>
+    </div>
+  </div>
+</div>

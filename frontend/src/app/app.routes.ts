@@ -26,4 +26,9 @@ export const routes: Routes = [
         path: 'edit-vehicle/:id',
         loadComponent: () => import('./editVehicle/editVehicle.component').then((m) => m.EditVehicle)
     },
+    {
+        path: 'digital-vehicle',
+        loadComponent: () => import('./digitalVehicle/digitalVehicle.component').then((m) => m.DigitalVehicleComponent)
+    }
+
 ];

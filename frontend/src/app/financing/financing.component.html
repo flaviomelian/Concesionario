@@ -1,16 +1,16 @@
 <header>
-    <nav class="navbar">
-        <div class="logo">Auto<span>Elite</span></div>
-        <ul class="nav-links">
-            <li><a routerLink="">Inicio</a></li>
-            <li><a routerLink="/services">Servicios</a></li>
-            <li><a routerLink="/financing">Financiación</a></li>
-            <li><a routerLink="/contact">Contacto</a></li>
-        </ul>
-        <div class="cta-nav">
-            <a href="tel:+34900000000" class="btn-phone">Llamar ahora</a>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">Auto<span>Elite</span></div>
+    <ul class="nav-links">
+      <li><a routerLink="">Inicio</a></li>
+      <li><a routerLink="/services">Servicios</a></li>
+      <li><a routerLink="/financing">Financiación</a></li>
+      <li><a routerLink="/contact">Contacto</a></li>
+    </ul>
+    <div class="cta-nav">
+      <a href="tel:+34900000000" class="btn-phone">Llamar ahora</a>
+    </div>
+  </nav>
 </header>
 
 <section class="financing-section">
@@ -27,24 +27,45 @@
 
     <div class="simulator-box">
       <h3>Simulador de Crédito</h3>
+
       <div class="input-group">
         <label>Importe a financiar</label>
-        <input type="number" #amount (input)="calculate(amount.value, terms.value)" placeholder="Ej: 20000">
+        <input
+          type="number"
+          #amount
+          (input)="calculate(amount.value, terms.value, rate.value)"
+          placeholder="Ej: 20000"
+        />
       </div>
+
       <div class="input-group">
         <label>Plazo (meses)</label>
-        <select #terms (change)="calculate(amount.value, terms.value)">
+        <select #terms (change)="calculate(amount.value, terms.value, rate.value)">
           <option value="48">48 meses</option>
-          <option value="60">60 meses</option>
+          <option value="60" selected>60 meses</option>
           <option value="72">72 meses</option>
           <option value="84">84 meses</option>
         </select>
       </div>
+
+      <div class="input-group">
+        <label>Interés anual (%)</label>
+        <input
+          type="number"
+          min="0"
+          #rate
+          [value]="interestRate"
+          step="0.1"
+          (input)="calculate(amount.value, terms.value, rate.value)"
+        />
+      </div>
+
       <div class="result-box">
         <p>Cuota estimada:</p>
-        <span class="monthly-fee">{{ monthlyPayment }} €/mes</span>
+        <span class="monthly-fee">{{ monthlyPayment | number: '1.2-2' }} €/mes</span>
       </div>
-      <button class="btn-primary study" style="width: 100%;">Solicitar Estudio</button>
+
+      <button class="btn-primary study" style="width: 100%">Solicitar Estudio</button>
     </div>
   </div>
 </section>
